@@ -1,11 +1,11 @@
+import { useState } from 'react'
 import Header from './components/Header'
 import initialEmails from './data/emails'
 
 import './styles/App.css'
 
-function App() {
-  // Use initialEmails for state
-  console.log(initialEmails)
+export default function App() {
+  const [emails, setEmails] = useState(initialEmails)
 
   return (
     <div className="app">
@@ -14,14 +14,14 @@ function App() {
         <ul className="inbox-list">
           <li
             className="item active"
-            // onClick={() => {}}
+          // onClick={() => {}}
           >
             <span className="label">Inbox</span>
             <span className="count">?</span>
           </li>
           <li
             className="item"
-            // onClick={() => {}}
+          // onClick={() => {}}
           >
             <span className="label">Starred</span>
             <span className="count">?</span>
@@ -33,14 +33,31 @@ function App() {
               id="hide-read"
               type="checkbox"
               checked={false}
-              // onChange={() => {}}
+            // onChange={() => {}}
             />
           </li>
         </ul>
       </nav>
-      <main className="emails">{/* Render a list of emails here */}</main>
+      <main className="emails">{
+        emails.map((email) => (
+          <ul className={`email ${email.read ? 'read' : 'unread'}`} key={email.id}>
+            <input
+              className="read"
+              type="checkbox"
+              checked={email.read}
+              onChange={() => { email.read = !email.read; setEmails([...emails]) }}
+            ></input>
+            <input
+              className="star-checkbox"
+              type="checkbox"
+              checked={email.starred}
+              onChange={() => { email.starred = !email.starred; setEmails([...emails]) }}
+            ></input>
+            <span className="sender">{email.sender}</span>
+            <span className="title">{email.title}</span>
+          </ul>
+        ))
+      }</main>
     </div>
   )
 }
-
-export default App

@@ -8,28 +8,28 @@
     180px 1fr;
 }
 
-.app > .emails {
+.app>.emails {
   grid-area: emails;
   padding: 10px 0;
 }
 
-.app > .emails > ul {
+.app>.emails>ul {
   list-style: none;
   display: grid;
 }
 
-.app > .left-menu {
+.app>.left-menu {
   grid-area: left-menu;
   padding: 10px;
   padding-left: 0;
 }
 
-.app > .left-menu .inbox-list {
+.app>.left-menu .inbox-list {
   display: grid;
   grid-gap: 10px;
 }
 
-.app > .left-menu .inbox-list .item {
+.app>.left-menu .inbox-list .item {
   padding: 5px 10px;
   display: grid;
   grid-auto-flow: column;
@@ -40,17 +40,17 @@
   border-bottom-right-radius: 20px;
 }
 
-.app > .left-menu .inbox-list .item.active {
+.app>.left-menu .inbox-list .item.active {
   background-color: #ff000050;
 }
 
-.app > .left-menu .inbox-list .item.toggle {
+.app>.left-menu .inbox-list .item.toggle {
   background-color: transparent;
 }
 
 .email {
   display: grid;
-  grid-template-columns: 30px 30px 150px 1fr;
+  grid-template-columns: 30px 300px 350px 1fr;
   padding: 10px;
   background-color: white;
   font-size: 0.9rem;
